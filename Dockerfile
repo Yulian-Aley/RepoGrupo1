@@ -1,17 +1,8 @@
-# Usa una imagen base
-FROM node:18
+# Imagen oficial de n8n
+FROM n8nio/n8n:latest
 
-# Crea carpeta para la app
-WORKDIR /app
+# Exponer el puerto 5678 (n8n usa este puerto por defecto)
+EXPOSE 5678
 
-# Copia los archivos del proyecto
-COPY . .
-
-# Instala dependencias
-RUN npm install
-
-# Expone el puerto
-EXPOSE 10000
-
-# Comando para ejecutar la app
-CMD ["npm", "start"]
+# Comando para ejecutar n8n
+CMD ["n8n", "start"]
